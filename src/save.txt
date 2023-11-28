@@ -1,0 +1,13 @@
+<h3 className="text-3xl">Account Settings</h3>
+<form className="mt-3 flex flex-col">
+    {Object.keys(profile).map((item, idx) => {
+        return (
+        <div key={idx} className="p-2 flex gap-4">
+            <label htmlFor={item}>{item.toUpperCase()}</label>
+            <input className="border-2" id={item} type="text" name={item} placeholder={item} value={profile[item]} onChange={(e) => handleInput(e)} />
+        </div>)
+    })}
+    <button className="bg-[#002d74] rounded p-2 text-white">Update</button>
+    {error && (<div className="text-center border-red-400 p-2 border-solid border-2 rounded-xl bg-red-100">{error}</div>)}
+</form>
+<button className="bg-red-600 rounded p-2 w-full text-white mt-2" onClick={() => setShowModel(true)}>Delete Account</button>
