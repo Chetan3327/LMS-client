@@ -50,19 +50,19 @@ const AddCourse = () => {
     })
   }
   const addChapter = (e) => {
-    console.log('object')
     e.preventDefault()
     if(title === ''){
-      console.log('chater naem empty')
+      console.log('chapter name empty')
       return
     }
-    console.log('23')
     const formData = {title: title}
     console.log(formData)
     axios.post(`${BACKEND_URL}/chapter/${courseId}`, formData).then((response) => {
-      console.log('34')
       console.log(response)
-      console.log('sdfhkajdsfhkjdslh')
+      toast.success('New Chapter Created', {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        theme: "colored"
+      });
     }).catch((error) => {
       console.log(error)
       if (error.message === 'Network Error') {

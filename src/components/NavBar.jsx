@@ -5,8 +5,11 @@ import { CgProfile } from "react-icons/cg";
 import { useState } from 'react';
 import SearchInput from '../course/SearchInput'
 import DropDown from './DropDown'
+import {useContext} from 'react'
+import {UserContext} from '../context/user-context'
 
 const NavBar = () => {
+    const {setSearch} = useContext(UserContext)
     const navigate = useNavigate()
     const [cookie, setCookie, removeCookie] = useCookies(['jwt-access-token'])
     const [dropDownVisible, setDropDownVisible] = useState(false)
@@ -21,7 +24,7 @@ const NavBar = () => {
         <nav className='fixed top-0 left-0 right-0 z-50 flex justify-between items-center py-2 px-3 bg-transparent'>
             <div className='flex gap-4'>
                 <img src={logo} width={40} alt="logo" className='cursor-pointer' onClick={() => navigate('/')} />
-                <SearchInput />
+                <SearchInput setSearch={setSearch} />
             </div>
             {/* <div className='bg-black text-white cursor-pointer px-4 p-2 rounded-xl shadow-sm hover:scale-105 duration-300' onClick={() => setCookie('jwt-access-token', 'value')} >set cookie</div> */}
             <div className='bg-black text-white cursor-pointer px-4 p-2 rounded-xl shadow-sm hover:scale-105 duration-300' onClick={() => navigate('/courses')} >Courses</div>

@@ -38,8 +38,8 @@ const App = () => {
           <Route path='/contact/' element={<ContactUs />} />
           <Route path='/courses/' element={<Courses />} />
           <Route path='/analytics/' element={<Analytics />} />
-          <Route path='/createCourse/' element={<CreateCourse />} />
           <Route path='/dashboard/' element={<DashBoard />} />
+          <Route path='/createCourse/' element={<CreateCourse />} />
           <Route path='/editCourse/' element={<AddCourse />} />
           <Route path='/editCourse/:courseId' element={<AddCourse />} />
           <Route path='/editChapter/:courseId/:chapterId' element={<EditChapter />} />
